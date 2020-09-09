@@ -2,7 +2,7 @@ import express from 'express'
 import mongoose from 'mongoose'
 import Pusher from 'pusher'
 import Messages from './dbMessages.js'
-
+import cors from 'cors'
 //app config
 const app = express()
 const port = process.env.PORT || 9000
@@ -27,6 +27,7 @@ app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Headers', '*')
   next()
 })
+app.use(cors())
 
 //DB config
 const connection_url =
